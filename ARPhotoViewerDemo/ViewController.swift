@@ -84,7 +84,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if (!makeMoreBandages) {
             return
         }
-        let crapLocation = CGPoint(x: 500, y: 100)
+        print("x: " + planes[0].position.x.description);
+        print("y: " + planes[0].position.y.description);
+        //let crapLocation = CGPoint(x: 450, y: 550)
+        let crapLocation = CGPoint(x: CGFloat(planes[0].position.x) + 250,
+                                   y: CGFloat(planes[0].position.y) + 700)
+        
         let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
         guard let hitTestResult = hitTestResults.first else { return }
@@ -104,7 +109,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             //set orientation of the node
             selectedNode.eulerAngles.x = -.pi / 2
-            //selectedNode.eulerAngles.y = -.pi / 2
             selectedNode.eulerAngles.z = -.pi / 2
 
             //scale down the node using our scale constants
@@ -121,6 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 }
 
+// UPDATES CURRENT PLANE
 //MARK: ARSCN View Delegate
 extension ViewController: ARSCNViewDelegate {
     
@@ -148,7 +153,7 @@ extension ViewController: ARSCNViewDelegate {
         planeNode.position = SCNVector3(x, y, z)
     }
 
-    
+    // MAKES A NEW PLANE
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
@@ -173,9 +178,13 @@ extension ViewController: ARSCNViewDelegate {
         let planeNode = SCNNode(geometry: plane)
 
         //get the x, y, and z locations of the plane anchor
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
+        var x = CGFloat(planeAnchor.center.x)
+        var y = CGFloat(planeAnchor.center.y)
+        var z = CGFloat(planeAnchor.center.z)
+        
+        x = 0
+        y = 0
+        z = 0
 
         //set the plane position to the x,y,z postion
         planeNode.position = SCNVector3(x,y,z)
