@@ -115,7 +115,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //gesturePos = CGPoint(x: 200, y: 200)
         //get a 3D point from the tapped location
         //check if the user tapped an existing plane
-        let hitTestResults = sceneView.hitTest(gesturePos, types: .existingPlaneUsingExtent)
+        /*let hitTestResults = sceneView.hitTest(gesturePos, types: .existingPlaneUsingExtent)
         
         //check if there was a result to the hit test
         guard let hitTest = hitTestResults.first, let _ = hitTest.anchor else {
@@ -123,10 +123,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         //add image using hit test
-        addImage(hitTest)
+         addImage(hitTest)*/
+        doAdd(withGestureRecognizer: gesture)
     }
     
-    /*func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
+    func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
             //get the location of the tap
             let tapLocation = recognizer.location(in: sceneView)
 
@@ -143,7 +144,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let y = translation.y
             let z = translation.z
 
-           //load scene (3d model) from echoAR using the entry id of the users selected button
+           //load scene (bandage 3d model) from echoAR using the entry id of the users selected button
             e!.loadSceneFromEntryID(entryID: "f31430d6-52a2-49b6-bc87-9bc4ca37e673") { (selectedScene) in
                 //make sure the scene has a scene node
                 guard let selectedNode = selectedScene.rootNode.childNodes.first else {return}
@@ -161,7 +162,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 //add the node to our scene
                 sceneView.scene.rootNode.addChildNode(selectedNode)
             }
-        }*/
+        }
     
     func addImage(_ hitTest: ARHitTestResult){
         //create a plane
