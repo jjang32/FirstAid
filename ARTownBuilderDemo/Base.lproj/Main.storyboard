@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +18,9 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7q-aE-tVJ">
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDV-ko-wny">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDV-ko-wny">
                                 <rect key="frame" x="49" y="303" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="GiX-1x-pc8"/>
                                     <constraint firstAttribute="height" constant="60" id="tx3-BZ-4jN"/>
@@ -34,7 +32,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bHN-Ld-V8h"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzM-3q-ujh">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzM-3q-ujh">
                                 <rect key="frame" x="129" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -48,9 +46,9 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AMN-fE-EWA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OV0-C9-aWb">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OV0-C9-aWb">
                                 <rect key="frame" x="209" y="303" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="B6h-4o-ipQ"/>
                                     <constraint firstAttribute="height" constant="60" id="SNC-Mq-FcQ"/>
@@ -63,7 +61,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvc-L1-9Ih"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7l-Wz-PpU">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7l-Wz-PpU">
                                 <rect key="frame" x="289" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.50550270609236592" blue="0.063833015613718347" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -84,7 +82,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x4N-Tk-BA4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyG-mN-Ymc">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyG-mN-Ymc">
                                 <rect key="frame" x="369" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.11993751857703119" green="0.78039215689999997" blue="0.65321614561584029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -99,7 +97,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9p-H5-7sw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-0M-OJ9">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJF-0M-OJ9">
                                 <rect key="frame" x="449" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -113,7 +111,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Nd-Z6-dG7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuw-s9-QwR">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuw-s9-QwR">
                                 <rect key="frame" x="529" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.75845048434857965" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -127,7 +125,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f2B-1L-V6y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGw-1h-Xl4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGw-1h-Xl4">
                                 <rect key="frame" x="782" y="112" width="60" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -141,7 +139,7 @@
                                     <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BbJ-Bc-mZe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="git-WZ-b7D">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="git-WZ-b7D">
                                 <rect key="frame" x="782" y="182" width="60" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -155,7 +153,7 @@
                                     <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CsN-8z-dfh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-aT-LXQ">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-aT-LXQ">
                                 <rect key="frame" x="782" y="252" width="60" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -169,7 +167,7 @@
                                     <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWB-oj-15E"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R55-Uh-3eO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R55-Uh-3eO">
                                 <rect key="frame" x="782" y="42" width="60" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -185,7 +183,7 @@
                                     <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ono-9U-frD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmm-1w-EZy">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmm-1w-EZy">
                                 <rect key="frame" x="609" y="303" width="60" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.099471790751142986" blue="0.50390400280195657" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -199,7 +197,7 @@
                                     <action selector="choiceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ysJ-e9-kCr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-7w-qMC" userLabel="Toggle">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SB-7w-qMC" userLabel="Toggle">
                                 <rect key="frame" x="64" y="20" width="100" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -216,8 +214,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6aL-jt-73b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Hqb-aT-LXQ" firstAttribute="top" secondItem="git-WZ-b7D" secondAttribute="bottom" constant="20" id="5il-UJ-87W"/>
                             <constraint firstItem="git-WZ-b7D" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6aL-jt-73b" secondAttribute="leading" constant="738" id="7Do-IP-eew"/>
@@ -255,6 +252,7 @@
                             <constraint firstItem="4SB-7w-qMC" firstAttribute="leading" secondItem="6aL-jt-73b" secondAttribute="leading" constant="20" id="vy3-tX-dcN"/>
                             <constraint firstItem="OV0-C9-aWb" firstAttribute="leading" secondItem="AzM-3q-ujh" secondAttribute="trailing" constant="20" id="zne-Ny-ahU"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6aL-jt-73b"/>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="R55-Uh-3eO" id="Hzp-98-3YL"/>
@@ -278,15 +276,4 @@
             <point key="canvasLocation" x="149" y="114"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

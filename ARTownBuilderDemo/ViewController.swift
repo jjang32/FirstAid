@@ -24,9 +24,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var myPlanes: [SCNNode] = []
     
     //echoAR entry id's for 3D models for app
-    let treeId = "9dd38668-21dd-461e-ad91-394197839151" // insert your entry id here
+    let treeId = "a3afa700-c20a-4366-9441-64ea0a14f750" // insert your entry id here
     let picnicTableId = "ddb22b24-1acc-41a6-825d-fb2d78040f9c" // insert your entry id here
-    let roadId = "3e78287f-aa7f-4537-a5be-bdf2f274827d" // insert your entry id here
+    let roadId = "32b22856-24af-43c4-bbbe-88ad98998a46" // insert your entry id here
     let poolId = "0916c8f6-5d31-4b66-9bf4-a5b1f4e6509f" // insert your entry id here
     let mailBoxId = "3952a84c-0b6a-4917-9e89-89bc7c318590" // insert your entry id here
     let houseId = "a294665c-7e9c-4d15-96de-fb750afded31" // insert your entry id here
