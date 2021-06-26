@@ -36,7 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //plane color off will be used as the color of our planes when they are toggled off
         planeColorOff = UIColor(red: CGFloat(102.0/255) , green: CGFloat(189.0/255), blue: CGFloat(60.0/255), alpha: CGFloat(0.0))
         
-        //initialize our echo ar objec
+        //initialize our echo ar object
         e = EchoAR()
         
         //set scene view to automatically add omni directional light when needed
@@ -166,7 +166,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: image picker delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //get the users selected image
-        guard let image = info[.editedImage] as? UIImage else {return}
+        // guard let image = info[.editedImage] as? UIImage else {return}
+        let name = "bandage"
+        let image = UIImage(named: name)
+
+        if image == nil {
+            print("missing image at: \(name)")
+        }
+        else {
+            print("!!!IMAGE FOUND at: \(name)")
+        }
+        
         self.chosenImage = image;
 
         self.dismiss(animated: true) {
