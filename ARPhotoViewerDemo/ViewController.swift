@@ -13,10 +13,9 @@ import ARKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var togglePlaneButton: UIButton!
     
     @IBOutlet weak var previewImageView: UIImageView!
-    @IBOutlet weak var imageAddedText: UILabel!
+    @IBOutlet weak var injuryLabel: UILabel!
     var planeColor: UIColor?
     var planeColorOff: UIColor?
     var chosenImage: UIImage?
@@ -67,17 +66,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidAppear(_ animated: Bool) {
         //when the view appears, present an alert to the user
         //letting them know to scan a horizontal surface
-        let alert = UIAlertController(title: "Scan And Get Started", message: "Move your phone around to scan your injury", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(okAction)
+        let alert = UIAlertController(title: "Injury", message: "What type of injury do you need help with?", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            
+        }
+        
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
+                    guard let textField = alert?.textFields?[0], let userText = textField.text else { return }
+                    print("User text: \(userText)")
+                    self.injuryLabel.text = userText
+                }))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func addPhotoTapped(_ sender: Any) {
         //when the user taps a photo
-        //display an image picker which allows the user to select a photo
-        //from their device
-        let name = "bandage"
+
+        let name = "Bandaid 2"
         let image = UIImage(named: name)
 
         if image == nil {
@@ -172,30 +178,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //END image picker delegate
  
-    @IBAction func togglePlaneTapped(_ sender: Any) {
-        //if toggle plane tapped,
-           //iterate through all horizontal planes, and set their alpha's to 0.0
-           for plane in planes {
-                  togglePlane(planeNode: plane)
-           }
-
-           //change the state of the toggle plane button (dim or undimmed)
-           togglePlaneButton.alpha = togglePlaneButton.alpha < 0.5 ? 1.0 : 0.3
-           print(togglePlaneButton.alpha)
-    }
     
     //togglePlane(planeNode:): takes a SCNNode as an argument
     //depending on the state of the togglePlaneButton, changes the color
     //of planeNode. (either to fully transparent, or to a translucent green)
-    func togglePlane(planeNode: SCNNode){
-        //make plane visible or invisible, by changing its color
-        if togglePlaneButton.alpha.isEqual(to: 1.0) {
-           planeNode.geometry?.materials.first?.diffuse.contents = planeColorOff
-        }
-        else {
-            planeNode.geometry?.materials.first?.diffuse.contents = planeColor
-        }
-    }
+
     
 }
 
