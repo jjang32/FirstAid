@@ -74,17 +74,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-
-
     
     @IBAction func addPhotoTapped(_ sender: Any) {
         //when the user taps a photo
         //display an image picker which allows the user to select a photo
         //from their device
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+        let name = "bandage"
+        let image = UIImage(named: name)
+
+        if image == nil {
+            print("missing image at: \(name)")
+        }
+        else {
+            print("!!!IMAGE FOUND at: \(name)")
+        }
+        
+        self.chosenImage = image;
+
+        self.dismiss(animated: true) {
+            //show a preview of the users selected image
+            //and show text prompt to user
+            self.imageAddedText.alpha = 1.0
+            self.previewImageView.image = image
+            self.previewImageView.alpha = 1.0
+        }
     }
     
     
@@ -154,44 +167,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.sceneView.scene.rootNode.addChildNode(selectedNode)
         })
         
-        
         //add image to scene
         sceneView.scene.rootNode.addChildNode(imageNode)
         
-    }
-    
-    
-
-    
-    //MARK: image picker delegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //get the users selected image
-        // guard let image = info[.editedImage] as? UIImage else {return}
-        let name = "bandage"
-        let image = UIImage(named: name)
-
-        if image == nil {
-            print("missing image at: \(name)")
-        }
-        else {
-            print("!!!IMAGE FOUND at: \(name)")
-        }
-        
-        self.chosenImage = image;
-
-        self.dismiss(animated: true) {
-            //show a preview of the users selected image
-            //and show text prompt to user
-            self.imageAddedText.alpha = 1.0
-            self.previewImageView.image = image
-            self.previewImageView.alpha = 1.0
-        }
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        //if a user clicks cancel when adding an image,
-        //dismiss the image picker
-        self.dismiss(animated: true, completion: nil)
     }
     
     //END image picker delegate
