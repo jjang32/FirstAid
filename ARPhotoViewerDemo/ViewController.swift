@@ -126,6 +126,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addImage(hitTest)
     }
     
+    func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
+            //get the location of the tap
+            let tapLocation = recognizer.location(in: sceneView)
+
+
+            //a hit test to see if the user has tapped on an existing plane
+            let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
+
+            //make sure a result of the hit test exists
+            guard let hitTestResult = hitTestResults.first else { return }
+
+            //get the translation, or where we will be adding our node
+            let translation = SCNVector3Make(hitTestResult.worldTransform.columns.3.x, hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
+            let x = translation.x
+            let y = translation.y
+            let z = translation.z
+
+           //load scene (3d model) from echoAR using the entry id of the users selected button
+            e.loadSceneFromEntryID(entryID: idArr![selectedInd]) { (selectedScene) in
+                //make sure the scene has a scene node
+                guard let selectedNode = selectedScene.rootNode.childNodes.first else {return}
+
+                //set the position of the node
+                selectedNode.position = SCNVector3(x,y,z)
+
+                //scale down the node using our scale constants
+                let action = SCNAction.scale(by: scaleConstants![selectedInd], duration: 0.3)
+                selectedNode.runAction(action)
+
+                //set the name of the node (just in case we ever need it)
+                selectedNode.name = idArr![selectedInd]
+
+                //add the node to our scene
+                sceneView.scene.rootNode.addChildNode(selectedNode)
+            }
+        }
+    
     func addImage(_ hitTest: ARHitTestResult){
         //create a plane
         let planeGeometry = SCNPlane(width: 0.1, height: 0.1)
