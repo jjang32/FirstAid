@@ -118,8 +118,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
             //get the location of the tap
-            let tapLocation = recognizer.location(in: sceneView)
-
+            var tapLocation = recognizer.location(in: sceneView)
+            print("Tap Coordinates: " + tapLocation.debugDescription)
+            tapLocation = CGPoint(x: 500, y: 100)
 
             //a hit test to see if the user has tapped on an existing plane
             let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
@@ -142,7 +143,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 selectedNode.position = SCNVector3(x,y,z)
 
                 //scale down the node using our scale constants
-                let action = SCNAction.scale(by: 0.01, duration: 0.1)
+                let action = SCNAction.scale(by: 0.01, duration: 0)
                 selectedNode.runAction(action)
 
                 //set the name of the node (just in case we ever need it)
