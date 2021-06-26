@@ -106,7 +106,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func screenTapped(gesture: UITapGestureRecognizer){
         var gesturePos = gesture.location(in: self.sceneView)
         print("coordinates: " + gesturePos.debugDescription)
-        gesturePos = CGPoint(x: 400, y: 200)
+        //gesturePos = CGPoint(x: 200, y: 200)
         //get a 3D point from the tapped location
         //check if the user tapped an existing plane
         let hitTestResults = sceneView.hitTest(gesturePos, types: .existingPlaneUsingExtent)
@@ -141,7 +141,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageNode.transform = SCNMatrix4(hitTest.anchor!.transform)
         
         //rotate the node so it stands up vertically, rather than lying flat
-        imageNode.eulerAngles = SCNVector3(imageNode.eulerAngles.x + (-1 * .pi / 2), imageNode.eulerAngles.y, imageNode.eulerAngles.z)
+        imageNode.eulerAngles = SCNVector3(imageNode.eulerAngles.x + (-1 * .pi / 2), imageNode.eulerAngles.y /*+ (-1 * .pi / 2)*/, imageNode.eulerAngles.z + (1 * .pi / 2))
         
         //position node using the hit test
         imageNode.position = SCNVector3(hitTest.worldTransform.columns.3.x, hitTest.worldTransform.columns.3.y, hitTest.worldTransform.columns.3.z)
@@ -252,8 +252,9 @@ extension ViewController: ARSCNViewDelegate {
         //set the plane position to the x,y,z postion
         planeNode.position = SCNVector3(x,y,z)
 
-        //turn th plane node so it lies flat vertically, rather than stands up vertically
+        //turn the plane node to the correct orientation
         planeNode.eulerAngles.x = -.pi / 2
+        planeNode.eulerAngles.z = -.pi / 2
 
         //set the name of the plane
         planeNode.name = "plane"
@@ -264,7 +265,4 @@ extension ViewController: ARSCNViewDelegate {
         //save plane (so it can be edited later)
         planes.append(planeNode)
     }
-    
-    
-    
 }
