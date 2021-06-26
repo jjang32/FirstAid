@@ -86,9 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         print("x: " + planes[0].position.x.description);
         print("y: " + planes[0].position.y.description);
-        //let crapLocation = CGPoint(x: 450, y: 550)
-        let crapLocation = CGPoint(x: CGFloat(planes[0].position.x) + 250,
-                                   y: CGFloat(planes[0].position.y) + 700)
+        let crapLocation = CGPoint(x: 450, y: 450)
         
         let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
@@ -106,13 +104,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
             //set the position of the node
             selectedNode.position = SCNVector3(x,y,z)
-            
-            //set orientation of the node
-            selectedNode.eulerAngles.x = -.pi / 2
-            selectedNode.eulerAngles.z = -.pi / 2
 
             //scale down the node using our scale constants
-            let action = SCNAction.scale(by: 0.02, duration: 0)
+            let action = SCNAction.scale(by: 0.035, duration: 0)
             selectedNode.runAction(action)
 
             //set the name of the node (just in case we ever need it)
@@ -191,7 +185,6 @@ extension ViewController: ARSCNViewDelegate {
 
         //turn the plane node to the correct orientation
         planeNode.eulerAngles.x = -.pi / 2
-        planeNode.eulerAngles.z = -.pi / 2
 
         //set the name of the plane
         planeNode.name = "plane"
