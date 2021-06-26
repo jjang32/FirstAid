@@ -15,7 +15,7 @@
 		2158BE742526C3F700629717 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158BE732526C3F700629717 /* ViewController.swift */; };
 		21C040A52534FD7B0062F297 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C040A42534FD7A0062F297 /* Entry.swift */; };
 		21C040A82534FD7E0062F297 /* RemoteTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C040A72534FD7E0062F297 /* RemoteTransformation.swift */; };
-		21C040AD2534FDBE0062F297 /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C040AC2534FDBE0062F297 /* EchoAR.swift */; };
+		5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB4B8D2686E69B0043E09F /* EchoAR.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 		21C040A42534FD7A0062F297 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		21C040A72534FD7E0062F297 /* RemoteTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTransformation.swift; sourceTree = "<group>"; };
 		21C040AA2534FD810062F297 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		21C040AC2534FDBE0062F297 /* EchoAR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EchoAR.swift; path = ../../../Downloads/echoARSwiftSDK/EchoAR.swift; sourceTree = "<group>"; };
+		5EAB4B8D2686E69B0043E09F /* EchoAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoAR.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 		2158BE5E2526C1F600629717 /* ARPhotoViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				21C040AC2534FDBE0062F297 /* EchoAR.swift */,
+				5EAB4B8D2686E69B0043E09F /* EchoAR.swift */,
 				21C040A42534FD7A0062F297 /* Entry.swift */,
 				21C040A72534FD7E0062F297 /* RemoteTransformation.swift */,
 				21C040AA2534FD810062F297 /* LICENSE.md */,
@@ -154,7 +154,7 @@
 				2158BE742526C3F700629717 /* ViewController.swift in Sources */,
 				2158BE602526C1F600629717 /* AppDelegate.swift in Sources */,
 				2158BE642526C1F600629717 /* Experience.rcproject in Sources */,
-				21C040AD2534FDBE0062F297 /* EchoAR.swift in Sources */,
+				5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

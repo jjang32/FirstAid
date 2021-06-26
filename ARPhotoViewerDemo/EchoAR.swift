@@ -19,7 +19,7 @@ import Foundation
 
 
 class EchoAR{
-    let api_key="shrill-bird-7026" //insert your echoAR API key here
+    let api_key="billowing-cloud-7438" //insert your echoAR API key here
     //echoar endpoint
     var serverURL="https://console.echoar.xyz/query?key="
     //websocket endpoint
