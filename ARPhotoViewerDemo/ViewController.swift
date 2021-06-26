@@ -61,9 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenTapped(gesture:)))
         sceneView.addGestureRecognizer(gestureRecognizer)
         
-        //make the view and text that appear when a user adds an image invisible.
-        imageAddedText.alpha = 0.0
-        previewImageView.alpha = 0.0
+        //make the view and text that appear when a user adds an image invisible
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +92,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismiss(animated: true) {
             //show a preview of the users selected image
             //and show text prompt to user
-            self.imageAddedText.alpha = 1.0
             self.previewImageView.image = image
             self.previewImageView.alpha = 1.0
         }
