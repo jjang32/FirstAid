@@ -110,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      calls addImage() -- to add an image on the tapped location
      */
     @objc func screenTapped(gesture: UITapGestureRecognizer){
-        var gesturePos = gesture.location(in: self.sceneView)
+        let gesturePos = gesture.location(in: self.sceneView)
         print("coordinates: " + gesturePos.debugDescription)
         //gesturePos = CGPoint(x: 200, y: 200)
         //get a 3D point from the tapped location
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         addImage(hitTest)
     }
     
-    func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
+    /*func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
             //get the location of the tap
             let tapLocation = recognizer.location(in: sceneView)
 
@@ -144,7 +144,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let z = translation.z
 
            //load scene (3d model) from echoAR using the entry id of the users selected button
-            e.loadSceneFromEntryID(entryID: idArr![selectedInd]) { (selectedScene) in
+            e!.loadSceneFromEntryID(entryID: "f31430d6-52a2-49b6-bc87-9bc4ca37e673") { (selectedScene) in
                 //make sure the scene has a scene node
                 guard let selectedNode = selectedScene.rootNode.childNodes.first else {return}
 
@@ -152,16 +152,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 selectedNode.position = SCNVector3(x,y,z)
 
                 //scale down the node using our scale constants
-                let action = SCNAction.scale(by: scaleConstants![selectedInd], duration: 0.3)
+                let action = SCNAction.scale(by: 0.5, duration: 0.3)
                 selectedNode.runAction(action)
 
                 //set the name of the node (just in case we ever need it)
-                selectedNode.name = idArr![selectedInd]
+                //selectedNode.name = idArr![selectedInd]
 
                 //add the node to our scene
                 sceneView.scene.rootNode.addChildNode(selectedNode)
             }
-        }
+        }*/
     
     func addImage(_ hitTest: ARHitTestResult){
         //create a plane
