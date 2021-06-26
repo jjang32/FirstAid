@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var chosenImage: UIImage?
     var planes: [SCNNode] = []
     var e: EchoAR?
+    var makeMorePlanes: Bool = true
     
     let echoImgEntryId = "ef28bae9-5e6a-4174-9a64-c3773ff59e17" // ENTER YOUR ECHO AR ENTRY ID FOR A PICTURE FRAME
     
@@ -112,18 +113,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func screenTapped(gesture: UITapGestureRecognizer){
         let gesturePos = gesture.location(in: self.sceneView)
         print("coordinates: " + gesturePos.debugDescription)
-        //gesturePos = CGPoint(x: 200, y: 200)
-        //get a 3D point from the tapped location
-        //check if the user tapped an existing plane
-        /*let hitTestResults = sceneView.hitTest(gesturePos, types: .existingPlaneUsingExtent)
-        
-        //check if there was a result to the hit test
-        guard let hitTest = hitTestResults.first, let _ = hitTest.anchor else {
-            return
-        }
-        
-        //add image using hit test
-         addImage(hitTest)*/
         doAdd(withGestureRecognizer: gesture)
     }
     
@@ -153,7 +142,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 selectedNode.position = SCNVector3(x,y,z)
 
                 //scale down the node using our scale constants
-                let action = SCNAction.scale(by: 0.5, duration: 0.3)
+                let action = SCNAction.scale(by: 0.01, duration: 0.1)
                 selectedNode.runAction(action)
 
                 //set the name of the node (just in case we ever need it)
@@ -163,56 +152,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 sceneView.scene.rootNode.addChildNode(selectedNode)
             }
         }
-    
-    func addImage(_ hitTest: ARHitTestResult){
-        //create a plane
-        let planeGeometry = SCNPlane(width: 0.1, height: 0.1)
-        let material = SCNMaterial()
-        planeGeometry.materials = [material]
-        
-        //check if the user has selected an image
-        guard chosenImage != nil else{
-            return
-        }
-        
-        //attach the image to the plane
-        material.diffuse.contents = chosenImage
-        
-        //create a node from our plane
-        let imageNode = SCNNode(geometry: planeGeometry)
-        
-        //match the image transform to the hit test anchor transform
-        imageNode.transform = SCNMatrix4(hitTest.anchor!.transform)
-        
-        //rotate the node so it stands up vertically, rather than lying flat
-        imageNode.eulerAngles = SCNVector3(imageNode.eulerAngles.x + (-1 * .pi / 2), imageNode.eulerAngles.y /*+ (-1 * .pi / 2)*/, imageNode.eulerAngles.z + (1 * .pi / 2))
-        
-        //position node using the hit test
-        imageNode.position = SCNVector3(hitTest.worldTransform.columns.3.x, hitTest.worldTransform.columns.3.y, hitTest.worldTransform.columns.3.z)
-        
-        //load picture frame from echoAR platform, using its entry id
-        e!.loadSceneFromEntryID(entryID: echoImgEntryId, completion: { (scene) in
-            //get the picture frame node
-            guard let selectedNode = scene.rootNode.childNodes.first else {return}
-            
-            //position selected node (picture frame), slightly behind the image, and set the euler angles
-            // of the selected node
-            selectedNode.position = SCNVector3(hitTest.worldTransform.columns.3.x, hitTest.worldTransform.columns.3.y, hitTest.worldTransform.columns.3.z - 0.01)
-            selectedNode.eulerAngles = imageNode.eulerAngles
-            
-            //scale down picture frame node
-            //0.043 is a number arrived at through trial, that gives a good picture frame size for our image
-            let action = SCNAction.scale(by: 0.043, duration: 0.3)
-            selectedNode.runAction(action)
-            
-            //add picture frame to scene
-            self.sceneView.scene.rootNode.addChildNode(selectedNode)
-        })
-        
-        //add image to scene
-        sceneView.scene.rootNode.addChildNode(imageNode)
-        
-    }
     
     //END image picker delegate
  
@@ -251,9 +190,14 @@ extension ViewController: ARSCNViewDelegate {
         planeNode.position = SCNVector3(x, y, z)
     }
 
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-
+        
+        if (!makeMorePlanes) {
+            return
+        }
+            
         //add a plane node to the scene
 
         //get the width and height of the plane anchor
@@ -262,6 +206,7 @@ extension ViewController: ARSCNViewDelegate {
 
         //create a new plane
         let plane = SCNPlane(width: w, height: h)
+        makeMorePlanes = false
 
         //set the color of the plane
         plane.materials.first?.diffuse.contents = planeColor!
