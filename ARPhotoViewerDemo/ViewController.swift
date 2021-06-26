@@ -22,6 +22,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var planes: [SCNNode] = []
     var e: EchoAR?
     var makeMorePlanes: Bool = true
+    var makeMoreBandages: Bool = true
     
     let echoImgEntryId = "ef28bae9-5e6a-4174-9a64-c3773ff59e17" // ENTER YOUR ECHO AR ENTRY ID FOR A PICTURE FRAME
     
@@ -79,9 +80,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func addModel(_ sender: Any) {
+        if (!makeMoreBandages) {
+            return
+        }
         let crapLocation = CGPoint(x: 500, y: 100)
         let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
@@ -99,9 +101,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
             //set the position of the node
             selectedNode.position = SCNVector3(x,y,z)
+            
+            //set orientation of the node
+            selectedNode.eulerAngles.x = -.pi / 2
+            //selectedNode.eulerAngles.y = -.pi / 2
+            selectedNode.eulerAngles.z = -.pi / 2
 
             //scale down the node using our scale constants
-            let action = SCNAction.scale(by: 0.01, duration: 0)
+            let action = SCNAction.scale(by: 0.02, duration: 0)
             selectedNode.runAction(action)
 
             //set the name of the node (just in case we ever need it)
@@ -110,11 +117,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             //add the node to our scene
             sceneView.scene.rootNode.addChildNode(selectedNode)
         }
+        makeMoreBandages = false;
     }
-        
-    
-
-    
 }
 
 //MARK: ARSCN View Delegate
