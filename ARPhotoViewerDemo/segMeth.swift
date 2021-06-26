@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 import Vision
 
-class segMeth{
+/*class segMeth{
     var segmentedImage: UIImage?
     var maskImage: UIImage?
-    func predict(customRequest: VNCoreMLRequest?, customImage: UIImage?) {
+   static func predict(customRequest: VNCoreMLRequest?, customImage: UIImage?) {
         DispatchQueue.global(qos: .userInitiated).async {
             guard let request = customRequest else { fatalError() }
             let handler = VNImageRequestHandler(cgImage: (customImage?.cgImage)!, options: [:])
@@ -26,7 +26,7 @@ class segMeth{
         }
     }
     
-    func visionRequestDidComplete(request: VNRequest, error: Error?) {
+func visionRequestDidComplete(request: VNRequest, error: Error?) {
         DispatchQueue.main.async {
             
             /*
@@ -58,5 +58,5 @@ class segMeth{
     }
     
     
-}
+}*/
         

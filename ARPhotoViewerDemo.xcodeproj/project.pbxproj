@@ -23,8 +23,10 @@
 		5F5101422687C651003250E7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51013E2687C651003250E7 /* Media.swift */; };
 		5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101432687C658003250E7 /* UIImageExtensions.swift */; };
 		5F5101462687C658003250E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101442687C658003250E7 /* SceneDelegate.swift */; };
-		5F5101482687C6B2003250E7 /* CoreML in Resources */ = {isa = PBXBuildFile; fileRef = 5F5101472687C6B2003250E7 /* CoreML */; };
 		B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42C92687C8FE0016E57F /* segMeth.swift */; };
+		B5DC42D42687D95E0016E57F /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */; };
+		B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */; };
+		B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +49,10 @@
 		5F51013E2687C651003250E7 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = ../../Segment/Segmentation/Media.swift; sourceTree = "<group>"; };
 		5F5101432687C658003250E7 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = ../../Segment/Segmentation/UIImageExtensions.swift; sourceTree = "<group>"; };
 		5F5101442687C658003250E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../Segment/Segmentation/SceneDelegate.swift; sourceTree = "<group>"; };
-		5F5101472687C6B2003250E7 /* CoreML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreML; sourceTree = "<group>"; };
 		B5DC42C92687C8FE0016E57F /* segMeth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segMeth.swift; sourceTree = "<group>"; };
+		B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3FP16.mlmodel; sourceTree = "<group>"; };
+		B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3Int8LUT.mlmodel; sourceTree = "<group>"; };
+		B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = DeepLabV3.mlmodel; path = ../../../.Trash/CoreML/DeepLabV3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,7 @@
 		2158BE5E2526C1F600629717 /* ARPhotoViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5F5101472687C6B2003250E7 /* CoreML */,
+				B5DC42CC2687D9160016E57F /* coreML */,
 				5F5101442687C658003250E7 /* SceneDelegate.swift */,
 				B5DC42C92687C8FE0016E57F /* segMeth.swift */,
 				5F5101432687C658003250E7 /* UIImageExtensions.swift */,
@@ -103,6 +107,16 @@
 				2158BE732526C3F700629717 /* ViewController.swift */,
 			);
 			path = ARPhotoViewerDemo;
+			sourceTree = "<group>";
+		};
+		B5DC42CC2687D9160016E57F /* coreML */ = {
+			isa = PBXGroup;
+			children = (
+				B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */,
+				B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */,
+				B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */,
+			);
+			path = coreML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +177,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F5101482687C6B2003250E7 /* CoreML in Resources */,
 				2158BE6C2526C1F800629717 /* LaunchScreen.storyboard in Resources */,
 				2158BE692526C1F800629717 /* Assets.xcassets in Resources */,
 				2158BE672526C1F600629717 /* Main.storyboard in Resources */,
@@ -177,6 +190,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */,
+				B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */,
 				5F51013A2687C63A003250E7 /* MultiArrayToImage.swift in Sources */,
 				21C040A82534FD7E0062F297 /* RemoteTransformation.swift in Sources */,
 				5F5101422687C651003250E7 /* Media.swift in Sources */,
@@ -191,6 +206,7 @@
 				5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */,
 				5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */,
 				B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */,
+				B5DC42D42687D95E0016E57F /* DeepLabV3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,13 +351,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HBZ2NKGW43;
+				DEVELOPMENT_TEAM = W6Y99956T7;
 				INFOPLIST_FILE = ARPhotoViewerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = poo69.ARPhotoViewerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = poo68.ARPhotoViewerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,13 +369,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HBZ2NKGW43;
+				DEVELOPMENT_TEAM = W6Y99956T7;
 				INFOPLIST_FILE = ARPhotoViewerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = poo69.ARPhotoViewerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = poo68.ARPhotoViewerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

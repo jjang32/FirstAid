@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Vision
 import SceneKit
 import ARKit
 
@@ -27,6 +28,59 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let echoImgEntryId = "ef28bae9-5e6a-4174-9a64-c3773ff59e17" // ENTER YOUR ECHO AR ENTRY ID FOR A PICTURE FRAME
     
     var pictureFrameNode: SCNNode?
+    var imageSegmentationModel = DeepLabV3()
+    var request :  VNCoreMLRequest?
+    
+    
+    var segmentedImage: UIImage?
+    var maskImage: UIImage?
+    func predict(customRequest: VNCoreMLRequest?, customImage: UIImage?) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let request = customRequest else { fatalError() }
+            let handler = VNImageRequestHandler(cgImage: (customImage?.cgImage)!, options: [:])
+            do {
+                print("Request Made")
+                try handler.perform([request])
+            }catch {
+                print(error)
+            }
+        }
+    }
+    
+    
+    func visionRequestDidComplete(request: VNRequest, error: Error?) {
+            DispatchQueue.main.async {
+                
+                /*
+                 Checks if the output is of type PixelBuffer or MultiArray:
+                    - U2-Net return CVPixelBuffer
+                    - Deep-Lab returns MLMultiArray
+                */
+                var top = Int.max, left = Int.max, right = Int.min, bottom = Int.min
+                if let observations = request.results as? [VNPixelBufferObservation],
+                   let segmentationmap = observations.first?.pixelBuffer {
+                    self.maskImage = segmentationmap.createImage()
+                }else if let observations = request.results as? [VNCoreMLFeatureValueObservation],
+                         let segmentationmap = observations.first?.featureValue.multiArrayValue {
+                    if let (b, w, h) = segmentationmap.toRawBytes(min: 0, max: 255){
+                        for i in 0...h - 1{
+                            for j in 0...w - 1{
+                                if(b[i * w  + j] == 255) {
+                                    top = min(top, i)
+                                    bottom = max(bottom, i)
+                                    left = min(left, j)
+                                    right = max(right, j)
+                                }
+                            }
+                        }
+        
+                    }
+                }
+            }
+        }
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +97,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //set scene view to automatically add omni directional light when needed
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
+    }
+    
+    func setUpModel() {
+        if let visionModel = try? VNCoreMLModel(for: imageSegmentationModel.model) {
+            request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+            
+            request?.imageCropAndScaleOption = .scaleFill
+            
+        } else {
+            fatalError()
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -85,6 +151,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         let crapLocation = CGPoint(x: 500, y: 100)
+        let temp = sceneView.snapshot()
+        //let helper = segMeth()
+        predict(customRequest: self.request, customImage: temp)
         let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
         guard let hitTestResult = hitTestResults.first else { return }
