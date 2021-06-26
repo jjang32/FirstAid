@@ -24,6 +24,7 @@
 		5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101432687C658003250E7 /* UIImageExtensions.swift */; };
 		5F5101462687C658003250E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101442687C658003250E7 /* SceneDelegate.swift */; };
 		5F5101482687C6B2003250E7 /* CoreML in Resources */ = {isa = PBXBuildFile; fileRef = 5F5101472687C6B2003250E7 /* CoreML */; };
+		B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42C92687C8FE0016E57F /* segMeth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		5F5101432687C658003250E7 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = ../../Segment/Segmentation/UIImageExtensions.swift; sourceTree = "<group>"; };
 		5F5101442687C658003250E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../Segment/Segmentation/SceneDelegate.swift; sourceTree = "<group>"; };
 		5F5101472687C6B2003250E7 /* CoreML */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreML; sourceTree = "<group>"; };
+		B5DC42C92687C8FE0016E57F /* segMeth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segMeth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				5F5101472687C6B2003250E7 /* CoreML */,
 				5F5101442687C658003250E7 /* SceneDelegate.swift */,
+				B5DC42C92687C8FE0016E57F /* segMeth.swift */,
 				5F5101432687C658003250E7 /* UIImageExtensions.swift */,
 				5F51013D2687C651003250E7 /* APIRequest.swift */,
 				5F51013B2687C650003250E7 /* CGImagePropertyOrientation.swift */,
@@ -187,6 +190,7 @@
 				2158BE642526C1F600629717 /* Experience.rcproject in Sources */,
 				5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */,
 				5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */,
+				B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
