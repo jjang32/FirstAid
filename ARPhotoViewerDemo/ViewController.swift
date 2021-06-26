@@ -107,8 +107,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      calls addImage() -- to add an image on the tapped location
      */
     @objc func screenTapped(gesture: UITapGestureRecognizer){
-        let gesturePos = gesture.location(in: self.sceneView)
-        
+        var gesturePos = gesture.location(in: self.sceneView)
+        print("coordinates: " + gesturePos.debugDescription)
+        gesturePos = CGPoint(x: 400, y: 200)
         //get a 3D point from the tapped location
         //check if the user tapped an existing plane
         let hitTestResults = sceneView.hitTest(gesturePos, types: .existingPlaneUsingExtent)
@@ -124,7 +125,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func addImage(_ hitTest: ARHitTestResult){
         //create a plane
-        let planeGeometry = SCNPlane(width: 0.2, height: 0.35)
+        let planeGeometry = SCNPlane(width: 0.1, height: 0.1)
         let material = SCNMaterial()
         planeGeometry.materials = [material]
         
