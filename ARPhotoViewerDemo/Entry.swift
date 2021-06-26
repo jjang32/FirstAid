@@ -190,12 +190,7 @@ class Entry{
                 completion(savedURL);
             }
         }
-        
-        
     }
-    
-    
-    
 }
 
 extension FileManager {

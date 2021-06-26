@@ -225,9 +225,5 @@ class EchoAR{
             }
             completion(node_list)
         });
-    
-    
     }
-
-    
 }

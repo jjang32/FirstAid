@@ -69,7 +69,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidAppear(_ animated: Bool) {
         //when the view appears, present an alert to the user
         //letting them know to scan a horizontal surface
-        let alert = UIAlertController(title: "Scan And Get Started", message: "Move your phone around to scan a vertical plane (find a vertical surface with a pattern for ease with scanning)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Scan And Get Started", message: "Move your phone around to scan your injury", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
