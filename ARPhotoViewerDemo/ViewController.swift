@@ -14,7 +14,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var sceneView: ARSCNView!
     
-    @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var injuryLabel: UILabel!
     var planeColor: UIColor?
     var planeColorOff: UIColor?
@@ -75,6 +74,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     guard let textField = alert?.textFields?[0], let userText = textField.text else { return }
                     print("User text: \(userText)")
                     self.injuryLabel.text = userText
+                    self.injuryLabel.isHidden = false
                 }))
         
         self.present(alert, animated: true, completion: nil)
