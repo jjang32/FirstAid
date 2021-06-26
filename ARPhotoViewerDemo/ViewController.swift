@@ -58,8 +58,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //add gesture recognizer, to perform some action whenever the user taps
         //the scene view
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenTapped(gesture:)))
-        sceneView.addGestureRecognizer(gestureRecognizer)
         
         //make the view and text that appear when a user adds an image invisible
     }
@@ -81,85 +79,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func addPhotoTapped(_ sender: Any) {
-        //when the user taps a photo
-
-        let name = "Bandaid 2"
-        let image = UIImage(named: name)
-
-        if image == nil {
-            print("missing image at: \(name)")
-        }
-        else {
-            print("!!!IMAGE FOUND at: \(name)")
-        }
+    
+    
+    @IBAction func addModel(_ sender: Any) {
+        let crapLocation = CGPoint(x: 500, y: 100)
+        let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
-        self.chosenImage = image;
+        guard let hitTestResult = hitTestResults.first else { return }
+        
+        let translation = SCNVector3Make(hitTestResult.worldTransform.columns.3.x, hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
+        let x = translation.x
+        let y = translation.y
+        let z = translation.z
 
-        self.dismiss(animated: true) {
-            //show a preview of the users selected image
-            //and show text prompt to user
-            self.previewImageView.image = image
-            self.previewImageView.alpha = 1.0
+       //load scene (bandage 3d model) from echoAR using the entry id of the users selected button
+        e!.loadSceneFromEntryID(entryID: "f31430d6-52a2-49b6-bc87-9bc4ca37e673") { (selectedScene) in
+            //make sure the scene has a scene node
+            guard let selectedNode = selectedScene.rootNode.childNodes.first else {return}
+
+            //set the position of the node
+            selectedNode.position = SCNVector3(x,y,z)
+
+            //scale down the node using our scale constants
+            let action = SCNAction.scale(by: 0.01, duration: 0)
+            selectedNode.runAction(action)
+
+            //set the name of the node (just in case we ever need it)
+            //selectedNode.name = idArr![selectedInd]
+
+            //add the node to our scene
+            sceneView.scene.rootNode.addChildNode(selectedNode)
         }
     }
+        
     
-    
-    /*
-     screenTapped(gesture:)
-     takes a tap gesture recognizer as an argument
-     calls addImage() -- to add an image on the tapped location
-     */
-    @objc func screenTapped(gesture: UITapGestureRecognizer){
-        let gesturePos = gesture.location(in: self.sceneView)
-        print("coordinates: " + gesturePos.debugDescription)
-        doAdd(withGestureRecognizer: gesture)
-    }
-    
-    func doAdd(withGestureRecognizer recognizer: UIGestureRecognizer){
-            //get the location of the tap
-            var tapLocation = recognizer.location(in: sceneView)
-            print("Tap Coordinates: " + tapLocation.debugDescription)
-            tapLocation = CGPoint(x: 500, y: 100)
-
-            //a hit test to see if the user has tapped on an existing plane
-            let hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-
-            //make sure a result of the hit test exists
-            guard let hitTestResult = hitTestResults.first else { return }
-
-            //get the translation, or where we will be adding our node
-            let translation = SCNVector3Make(hitTestResult.worldTransform.columns.3.x, hitTestResult.worldTransform.columns.3.y, hitTestResult.worldTransform.columns.3.z)
-            let x = translation.x
-            let y = translation.y
-            let z = translation.z
-
-           //load scene (bandage 3d model) from echoAR using the entry id of the users selected button
-            e!.loadSceneFromEntryID(entryID: "f31430d6-52a2-49b6-bc87-9bc4ca37e673") { (selectedScene) in
-                //make sure the scene has a scene node
-                guard let selectedNode = selectedScene.rootNode.childNodes.first else {return}
-
-                //set the position of the node
-                selectedNode.position = SCNVector3(x,y,z)
-
-                //scale down the node using our scale constants
-                let action = SCNAction.scale(by: 0.01, duration: 0)
-                selectedNode.runAction(action)
-
-                //set the name of the node (just in case we ever need it)
-                //selectedNode.name = idArr![selectedInd]
-
-                //add the node to our scene
-                sceneView.scene.rootNode.addChildNode(selectedNode)
-            }
-        }
-    
-    //END image picker delegate
- 
-    
-    //togglePlane(planeNode:): takes a SCNNode as an argument
-    //depending on the state of the togglePlaneButton, changes the color
-    //of planeNode. (either to fully transparent, or to a translucent green)
 
     
 }
