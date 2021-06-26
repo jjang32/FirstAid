@@ -65,8 +65,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         selectedId = treeId
         treeButton.alpha = 1.0
         
-
-        
         //array of all entry id's of models users can add
         idArr = [treeId, roadId, poolId, picnicTableId, mailBoxId, houseId, deerId, bikeId]
         
@@ -130,13 +128,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     //called whenever a user does a two finger pinch
     
     
-    
     @IBAction func addModel(_ sender: Any) {
-            if (!makeMoreBandages) {
+            /*if (!makeMoreBandages) {
                 return
-            }
-        print("dfg")
-            let crapLocation = CGPoint(x: 450, y: 550)
+            }*/
+            print("adding bandage")
+            let crapLocation = CGPoint(x: 300, y: 300)
             
             let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
             
@@ -172,7 +169,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     
    
-    
     //isPlane(node:): takes an SCNNode as an argument
     //returns true if the node is named "plain" otherwise returns false
     func isPlane(node: SCNNode) -> Bool {
@@ -211,6 +207,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if (!makeMorePlanes) {
+            return
+        }
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
         //add a plane node to the scene
@@ -248,6 +247,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //add plane to scene
         node.addChildNode(planeNode)
+        makeMorePlanes = false
     }
     
 }
