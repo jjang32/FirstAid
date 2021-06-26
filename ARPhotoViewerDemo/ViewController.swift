@@ -76,6 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
                     }
                 }
+                print("all done")
             }
         }
 
@@ -97,6 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //set scene view to automatically add omni directional light when needed
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
+        setUpModel()
     }
     
     func setUpModel() {

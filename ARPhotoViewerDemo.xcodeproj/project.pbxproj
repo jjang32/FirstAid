@@ -24,9 +24,9 @@
 		5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101432687C658003250E7 /* UIImageExtensions.swift */; };
 		5F5101462687C658003250E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101442687C658003250E7 /* SceneDelegate.swift */; };
 		B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42C92687C8FE0016E57F /* segMeth.swift */; };
-		B5DC42D42687D95E0016E57F /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */; };
 		B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */; };
 		B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */; };
+		B5DC42D82687DF990016E57F /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 		B5DC42C92687C8FE0016E57F /* segMeth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segMeth.swift; sourceTree = "<group>"; };
 		B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3FP16.mlmodel; sourceTree = "<group>"; };
 		B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3Int8LUT.mlmodel; sourceTree = "<group>"; };
-		B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = DeepLabV3.mlmodel; path = ../../../.Trash/CoreML/DeepLabV3.mlmodel; sourceTree = "<group>"; };
+		B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 		B5DC42CC2687D9160016E57F /* coreML */ = {
 			isa = PBXGroup;
 			children = (
-				B5DC42D32687D95E0016E57F /* DeepLabV3.mlmodel */,
+				B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */,
 				B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */,
 				B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */,
 			);
@@ -190,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DC42D82687DF990016E57F /* DeepLabV3.mlmodel in Sources */,
 				B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */,
 				B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */,
 				5F51013A2687C63A003250E7 /* MultiArrayToImage.swift in Sources */,
@@ -206,7 +207,6 @@
 				5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */,
 				5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */,
 				B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */,
-				B5DC42D42687D95E0016E57F /* DeepLabV3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
