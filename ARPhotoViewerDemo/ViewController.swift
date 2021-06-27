@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         userText.lowercased() == "gunshot wound" ||
                         userText.lowercased() == "stab wound" ||
                         userText.lowercased() == "i'm dying") {
-                            self.callNumber(phoneNumber: "2407071760")
+                            self.callNumber(phoneNumber: "5103057579")
                     }
                     self.injuryLabel.text = userText
                     self.injuryLabel.isHidden = false
@@ -86,7 +86,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(alert, animated: true, completion: nil)
     }
         
-    private func callNumber(phoneNumber:String) {
+    private func callNumber(phoneNumber: String) {
         if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
