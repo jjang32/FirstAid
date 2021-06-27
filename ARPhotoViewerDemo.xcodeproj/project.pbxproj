@@ -16,6 +16,17 @@
 		21C040A52534FD7B0062F297 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C040A42534FD7A0062F297 /* Entry.swift */; };
 		21C040A82534FD7E0062F297 /* RemoteTransformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C040A72534FD7E0062F297 /* RemoteTransformation.swift */; };
 		5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB4B8D2686E69B0043E09F /* EchoAR.swift */; };
+		5F51013A2687C63A003250E7 /* MultiArrayToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101392687C63A003250E7 /* MultiArrayToImage.swift */; };
+		5F51013F2687C651003250E7 /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51013B2687C650003250E7 /* CGImagePropertyOrientation.swift */; };
+		5F5101402687C651003250E7 /* CGImageRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51013C2687C650003250E7 /* CGImageRaw.swift */; };
+		5F5101412687C651003250E7 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51013D2687C651003250E7 /* APIRequest.swift */; };
+		5F5101422687C651003250E7 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51013E2687C651003250E7 /* Media.swift */; };
+		5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101432687C658003250E7 /* UIImageExtensions.swift */; };
+		5F5101462687C658003250E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5101442687C658003250E7 /* SceneDelegate.swift */; };
+		B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42C92687C8FE0016E57F /* segMeth.swift */; };
+		B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */; };
+		B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */; };
+		B5DC42D82687DF990016E57F /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +42,17 @@
 		21C040A72534FD7E0062F297 /* RemoteTransformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTransformation.swift; sourceTree = "<group>"; };
 		21C040AA2534FD810062F297 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		5EAB4B8D2686E69B0043E09F /* EchoAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoAR.swift; sourceTree = "<group>"; };
+		5F5101392687C63A003250E7 /* MultiArrayToImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiArrayToImage.swift; path = ../../Segment/Segmentation/MultiArrayToImage.swift; sourceTree = "<group>"; };
+		5F51013B2687C650003250E7 /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGImagePropertyOrientation.swift; path = ../../Segment/Segmentation/CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
+		5F51013C2687C650003250E7 /* CGImageRaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGImageRaw.swift; path = ../../Segment/Segmentation/CGImageRaw.swift; sourceTree = "<group>"; };
+		5F51013D2687C651003250E7 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequest.swift; path = ../../Segment/Segmentation/APIRequest.swift; sourceTree = "<group>"; };
+		5F51013E2687C651003250E7 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = ../../Segment/Segmentation/Media.swift; sourceTree = "<group>"; };
+		5F5101432687C658003250E7 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = ../../Segment/Segmentation/UIImageExtensions.swift; sourceTree = "<group>"; };
+		5F5101442687C658003250E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../Segment/Segmentation/SceneDelegate.swift; sourceTree = "<group>"; };
+		B5DC42C92687C8FE0016E57F /* segMeth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segMeth.swift; sourceTree = "<group>"; };
+		B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3FP16.mlmodel; sourceTree = "<group>"; };
+		B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3Int8LUT.mlmodel; sourceTree = "<group>"; };
+		B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +85,15 @@
 		2158BE5E2526C1F600629717 /* ARPhotoViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B5DC42CC2687D9160016E57F /* coreML */,
+				5F5101442687C658003250E7 /* SceneDelegate.swift */,
+				B5DC42C92687C8FE0016E57F /* segMeth.swift */,
+				5F5101432687C658003250E7 /* UIImageExtensions.swift */,
+				5F51013D2687C651003250E7 /* APIRequest.swift */,
+				5F51013B2687C650003250E7 /* CGImagePropertyOrientation.swift */,
+				5F51013C2687C650003250E7 /* CGImageRaw.swift */,
+				5F51013E2687C651003250E7 /* Media.swift */,
+				5F5101392687C63A003250E7 /* MultiArrayToImage.swift */,
 				5EAB4B8D2686E69B0043E09F /* EchoAR.swift */,
 				21C040A42534FD7A0062F297 /* Entry.swift */,
 				21C040A72534FD7E0062F297 /* RemoteTransformation.swift */,
@@ -76,6 +107,16 @@
 				2158BE732526C3F700629717 /* ViewController.swift */,
 			);
 			path = ARPhotoViewerDemo;
+			sourceTree = "<group>";
+		};
+		B5DC42CC2687D9160016E57F /* coreML */ = {
+			isa = PBXGroup;
+			children = (
+				B5DC42D72687DF4F0016E57F /* DeepLabV3.mlmodel */,
+				B5DC42D02687D92E0016E57F /* DeepLabV3Int8LUT.mlmodel */,
+				B5DC42CF2687D9290016E57F /* DeepLabV3FP16.mlmodel */,
+			);
+			path = coreML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,12 +190,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5DC42D82687DF990016E57F /* DeepLabV3.mlmodel in Sources */,
+				B5DC42D62687D9970016E57F /* DeepLabV3FP16.mlmodel in Sources */,
+				B5DC42D52687D9920016E57F /* DeepLabV3Int8LUT.mlmodel in Sources */,
+				5F51013A2687C63A003250E7 /* MultiArrayToImage.swift in Sources */,
 				21C040A82534FD7E0062F297 /* RemoteTransformation.swift in Sources */,
+				5F5101422687C651003250E7 /* Media.swift in Sources */,
+				5F5101412687C651003250E7 /* APIRequest.swift in Sources */,
+				5F5101402687C651003250E7 /* CGImageRaw.swift in Sources */,
 				21C040A52534FD7B0062F297 /* Entry.swift in Sources */,
+				5F51013F2687C651003250E7 /* CGImagePropertyOrientation.swift in Sources */,
+				5F5101462687C658003250E7 /* SceneDelegate.swift in Sources */,
 				2158BE742526C3F700629717 /* ViewController.swift in Sources */,
 				2158BE602526C1F600629717 /* AppDelegate.swift in Sources */,
 				2158BE642526C1F600629717 /* Experience.rcproject in Sources */,
 				5EAB4B8E2686E69B0043E09F /* EchoAR.swift in Sources */,
+				5F5101452687C658003250E7 /* UIImageExtensions.swift in Sources */,
+				B5DC42CA2687C8FE0016E57F /* segMeth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+
 				PRODUCT_BUNDLE_IDENTIFIER = poo8.ARPhotoViewerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -323,6 +376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+
 				PRODUCT_BUNDLE_IDENTIFIER = poo8.ARPhotoViewerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
