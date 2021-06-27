@@ -15,7 +15,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var sceneView: ARSCNView!
     
-    @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var injuryLabel: UILabel!
     var planeColor: UIColor?
     var planeColorOff: UIColor?
@@ -142,20 +141,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alert] (_) in
                     guard let textField = alert?.textFields?[0], let userText = textField.text else { return }
                     print("User text: \(userText)")
+                if (userText.lowercased() == "broken arm" ||                        userText.lowercased() == "broken leg" ||
+                        userText.lowercased() == "gunshot wound" ||
+                        userText.lowercased() == "stab wound" ||
+                        userText.lowercased() == "i'm dying") {
+                            self.callNumber(phoneNumber: "2407071760")
+                    }
                     self.injuryLabel.text = userText
+                    self.injuryLabel.isHidden = false
                 }))
         
         self.present(alert, animated: true, completion: nil)
+    }
+        
+    private func callNumber(phoneNumber: String) {
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     @IBAction func addModel(_ sender: Any) {
         if (!makeMoreBandages) {
             return
         }
+
         let crapLocation = CGPoint(x: 500, y: 100)
         let temp = sceneView.snapshot()
         //let helper = segMeth()
         predict(customRequest: self.request, customImage: temp)
+
         let hitTestResults = sceneView.hitTest(crapLocation, types: .existingPlaneUsingExtent)
         
         guard let hitTestResult = hitTestResults.first else { return }
@@ -172,14 +189,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
             //set the position of the node
             selectedNode.position = SCNVector3(x,y,z)
-            
-            //set orientation of the node
-            selectedNode.eulerAngles.x = -.pi / 2
-            //selectedNode.eulerAngles.y = -.pi / 2
-            selectedNode.eulerAngles.z = -.pi / 2
 
             //scale down the node using our scale constants
-            let action = SCNAction.scale(by: 0.02, duration: 0)
+            let action = SCNAction.scale(by: 0.035, duration: 0)
             selectedNode.runAction(action)
 
             //set the name of the node (just in case we ever need it)
@@ -192,6 +204,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 }
 
+// UPDATES CURRENT PLANE
 //MARK: ARSCN View Delegate
 extension ViewController: ARSCNViewDelegate {
     
@@ -219,7 +232,7 @@ extension ViewController: ARSCNViewDelegate {
         planeNode.position = SCNVector3(x, y, z)
     }
 
-    
+    // MAKES A NEW PLANE
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
@@ -244,16 +257,19 @@ extension ViewController: ARSCNViewDelegate {
         let planeNode = SCNNode(geometry: plane)
 
         //get the x, y, and z locations of the plane anchor
-        let x = CGFloat(planeAnchor.center.x)
-        let y = CGFloat(planeAnchor.center.y)
-        let z = CGFloat(planeAnchor.center.z)
+        var x = CGFloat(planeAnchor.center.x)
+        var y = CGFloat(planeAnchor.center.y)
+        var z = CGFloat(planeAnchor.center.z)
+        
+        x = 0
+        y = 0
+        z = 0
 
         //set the plane position to the x,y,z postion
         planeNode.position = SCNVector3(x,y,z)
 
         //turn the plane node to the correct orientation
         planeNode.eulerAngles.x = -.pi / 2
-        planeNode.eulerAngles.z = -.pi / 2
 
         //set the name of the plane
         planeNode.name = "plane"
