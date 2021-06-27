@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         userText.lowercased() == "gunshot wound" ||
                         userText.lowercased() == "stab wound" ||
                         userText.lowercased() == "i'm dying") {
-                            self.callNumber(phoneNumber: "5103057579")
+                            self.callNumber(phoneNumber: "2407071760")
                     }
                     self.injuryLabel.text = userText
                     self.injuryLabel.isHidden = false
